@@ -13,10 +13,36 @@
         //  create an array with the values;
         let roShamBo = ["Rock", "Paper", "Scissors"];
         //   randomly return rock paper or scissors;
-        let random = roShamBo[Math.floor(Math.random() * roShamBo.length)];
-        console.log(random);
+        let random =
+          roShamBo[Math.floor(Math.random() * roShamBo.length)].toLowerCase();
+        return random;
       }
-      computerPlay();
+      const playerSelection = "rock";
+      const computerSelection = computerPlay();
+      console.log(playRound(playerSelection, computerSelection));
+      //   create a function playRound() with two parameters: playerSelection and computerSelection;
+      function playRound(playerSelection, computerSelection) {
+        if (
+          (playerSelection === "rock" && computerSelection === "scissors") ||
+          (playerSelection === "paper" && computerSelection === "rock") ||
+          (playerSelection === "scissors" && computerSelection === "paper")
+        ) {
+          return "User wins!";
+        } else if (
+          (playerSelection === "rock" && computerSelection === "paper") ||
+          (playerSelection === "paper" && computerSelection === "scissors") ||
+          (playerSelection === "scissors" && computerSelection === "rock")
+        ) {
+          return "Computer wins";
+        } else {
+          return "Draw";
+        }
+      }
+
+      // Display player / computer / result in console
+      console.log("Player chooses: " + playerSelection);
+      console.log("Computer chooses: " + computerSelection);
+      console.log(playRound());
     </script>
   </body>
 </html>
